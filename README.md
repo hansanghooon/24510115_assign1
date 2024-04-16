@@ -53,6 +53,46 @@
 
 
               Custom MLP 에서는 layer에 변형을 주면서  paramter 숫자를 Lenet 5 와 동일하게 유지하는게 어렵고, Lenet 성능이 잘나와서 위의 Lenet에서 dropout 비율만 바꿧다..
+             
+
+             파라메터수 계산 : Custom MLP
+                Convolutional Layer 1 (self.conv1):
+
+                  Input 채널 수: 1
+                  Output 채널 수: 6
+                  커널 크기: 5x5
+                  Bias 항목: 각 output 채널마다 하나
+                  파라미터 수 = (입력 채널 수 * 커널 높이 * 커널 너비 + 1) * 출력 채널 수 = (1 * 5 * 5 + 1) * 6 = 156
+                Convolutional Layer 2 (self.conv2):
+                  
+                  Input 채널 수: 6
+                  Output 채널 수: 16
+                  커널 크기: 5x5
+                  Bias 항목: 각 output 채널마다 하나
+                  파라미터 수 = (입력 채널 수 * 커널 높이 * 커널 너비 + 1) * 출력 채널 수 = (6 * 5 * 5 + 1) * 16 = 2416
+                  
+                Fully Connected Layer 1 (self.fc1):                  
+                  입력 크기: 1655
+                  출력 크기: 120
+                  Bias 항목: 각 출력 노드마다 하나
+                  파라미터 수 = (입력 크기 + 1) * 출력 크기 = (1655 + 1) * 120 = 48120
+                  
+                Fully Connected Layer 2 (self.fc2):
+                  입력 크기: 120
+                  출력 크기: 84
+                  Bias 항목: 각 출력 노드마다 하나
+                  파라미터 수 = (입력 크기 + 1) * 출력 크기 = (120 + 1) * 84 = 10164
+                
+      
+                Fully Connected Layer 3 (self.fc3):
+                  입력 크기: 84
+                  출력 크기: 10 (최종 클래스 수)
+                  Bias 항목: 각 출력 노드마다 하나
+                  파라미터 수 = (입력 크기 + 1) * 출력 크기 = (84 + 1) * 10 = 850
+
+                총합:  156 + 2,416 + 48,120 + 10,164 + 850 = 61,706개,코드로 확인해본 결과도 동일함
+
+
 
               둘다 모델형태가 비슷해서 성능이 비슷할거라고 생각되고 실제로 비슷하게 나왔다.
 
@@ -71,7 +111,15 @@ train 및 test (main.py):
 
 
 
+ #Lenet plot
+![Lenet-5](https://github.com/hansanghooon/24510115_assign1/assets/132417290/dc9ebe23-d56f-4a96-b3a0-31524ba0ab31
 
-              Lenet과 Custo MLP plot
-![Lenet-5](https://github.com/hansanghooon/24510115_assign1/assets/132417290/dc9ebe23-d56f-4a96-b3a0-31524ba0ab31)
+
+
+
+ #Custom MLP plot 
+
+
+ ![Custom Training and Testing Stats](https://github.com/hansanghooon/24510115_assign1/assets/132417290/390c0e6f-dde0-44d8-a908-0b266f37b4a1)
+
 
