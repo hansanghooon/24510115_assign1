@@ -112,8 +112,8 @@ train 및 test (main.py):
 
 
  #Lenet plot
-![Lenet-5](https://github.com/hansanghooon/24510115_assign1/assets/132417290/dc9ebe23-d56f-4a96-b3a0-31524ba0ab31
-
+ 
+![LeNet-5 Training and Testing Stats](https://github.com/hansanghooon/24510115_assign1/assets/132417290/9d57e439-bf3e-46ef-8a17-597d446e8b5f)
 
 
 
